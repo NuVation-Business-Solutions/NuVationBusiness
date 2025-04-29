@@ -6,4 +6,4 @@ You may view, use, and link to this website for personal and business purposes o
 
 Unauthorized reproduction or distribution of any part of this website is strictly prohibited and may result in legal action.
 
-For licensing inquiries, contact: info@nuvation.co.za
+For licensing inquiries, contact: nuvationsolutionsza@outlook.com
