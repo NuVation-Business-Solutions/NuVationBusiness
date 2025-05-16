@@ -58,3 +58,26 @@ class ChatBot {
         return div.innerHTML;
     }
 }
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chatbot Demo</title>
+</head>
+<body>
+  <div id="chat"></div>
+  <input type="text" id="userInput" placeholder="Type a message...">
+  <button id="sendBtn">Send</button>
+  <script src="chatbot.js"></script>
+  <script>
+    // Replace this with how chatbot.js expects messages
+    document.getElementById('sendBtn').onclick = function() {
+      const input = document.getElementById('userInput').value;
+      // Example: if chatbot.js exposes a "sendMessage" function
+      const response = sendMessage(input); // adjust if the function is different!
+      document.getElementById('chat').innerHTML += "<br><b>You:</b> " + input;
+      document.getElementById('chat').innerHTML += "<br><b>Bot:</b> " + response;
+      document.getElementById('userInput').value = "";
+    }
+  </script>
+</body>
+</html>
