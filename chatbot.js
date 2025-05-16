@@ -2,8 +2,9 @@ function sendMessage() {
   const input = document.getElementById("user-input");
   const display = document.getElementById("chat-display");
 
-  const userMessage = input.value.trim();
-  if (!userMessage) return;
+  const userMessageElement = document.createElement("div");
+userMessageElement.innerHTML = `<strong>You:</strong> ${escapeHTML(userMessage)}`;
+display.appendChild(userMessageElement);
 
   display.innerHTML += <div><strong>You:</strong> ${userMessage}</div>;
 
@@ -17,4 +18,43 @@ function sendMessage() {
 
 function getFakeAIResponse(msg) {
   return "Thanks for your message! The real AI is coming soon.";
+}
+function escapeHTML(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+}
+class ChatBot {
+    constructor(displayElement, inputElement) {
+        this.display = displayElement;
+        this.input = inputElement;
+    }
+
+    sendMessage() {
+        const userMessage = this.input.value.trim();
+        if (!userMessage) return;
+
+        this.appendMessage("You", userMessage);
+        const aiReply = this.getAIResponse(userMessage);
+        this.appendMessage("MyVation", aiReply);
+
+        this.input.value = "";
+        this.display.scrollTop = this.display.scrollHeight;
+    }
+
+    appendMessage(sender, message) {
+        const messageElement = document.createElement("div");
+        messageElement.innerHTML = `<strong>${sender}:</strong> ${this.escapeHTML(message)}`;
+        this.display.appendChild(messageElement);
+    }
+
+    getAIResponse(msg) {
+        return "Thanks for your message! The real AI is coming soon.";
+    }
+
+    escapeHTML(str) {
+        const div = document.createElement("div");
+        div.textContent = str;
+        return div.innerHTML;
+    }
 }
